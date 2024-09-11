@@ -1,13 +1,177 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+    --text-color: #495057;
+    --button-color: #ffa94d;
+    --button-hover-color: #cc873e;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    background-color: aqua;
+    max-width: 90%;
+    margin: 10rem auto;
+    padding: 5rem 10rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 2.4rem;
+}
+
+/* **************************************************** */
+/* Generic CSS*/
+/* **************************************************** */
+.calculation-bill,
+.friends,
+.add-friend,
+.close-btn {
+    background-color: aliceblue;
+    padding: 1rem 2rem;
+}
+
+.calculation-bill,
+.container-friends {
+    background-color: antiquewhite;
+    border-radius: 0.7rem;
+}
+
+.btn {
+    display: block;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1.4rem;
+    font-family: inherit;
+    font-weight: 600;
+    background-color: var(--button-color);
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.btn:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+}
+
+.btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-container__bill {
+    display: grid;
+}
+
+input,
+select {
+    border: none;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.4rem;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    cursor: text;
+}
+/* **************************************************** */
+/* Friends CSS*/
+/* **************************************************** */
+.container-friends {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 4rem 2rem;
+}
+
+.friends {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.friend {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.8rem;
+    background-color: blueviolet;
+    padding: 0.5rem;
+}
+
+/* Profile image */
+.profile-img {
+    height: 5rem;
+    border-radius: 10rem;
+}
+
+/* Profile Data */
+.profile-data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.friend-name {
+    font-size: 1.4rem;
+}
+
+.profile-msg {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.add-friend {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.new-friend__name,
+.new-friend__img {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 1.2rem;
+}
+
+/* **************************************************** */
+/* Bill CSS*/
+/* **************************************************** */
+.calculation-bill {
+    padding: 4rem 2rem;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+.bill-elements {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 1.2rem;
+}
+
+.calculation-bill input,
+.calculation-bill select {
+    max-width: 50%;
+    align-self: start;
 }

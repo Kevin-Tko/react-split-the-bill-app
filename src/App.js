@@ -1,25 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { AddFriendForm } from "./AddFriendForm";
+import { FriendsList } from "./FriendsList";
+import { BillCalculation } from "./BillCalculation";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return <SplitBillContainer />;
 }
 
-export default App;
+function SplitBillContainer() {
+    const [friend, setFriend] = useState([]);
+    const [debtor, setDebtor] = useState("");
+    const [debt, setDebt] = useState(0);
+    const [billOpen, setBillOpen] = useState(false);
+    const [selectedFriend, setSelectedFriend] = useState("");
+    const [globalSelfBill, setGlobalSelfBill] = useState("");
+    const [globalFrenBill, setGlobalFrenBill] = useState("");
+    const [selected, setSelected] = useState(null);
+
+    return (
+        <div className="container">
+            <div className="container-friends">
+                <FriendsList
+                    friend={friend}
+                    debtor={debtor}
+                    onBillOpen={setBillOpen}
+                    billOpen={billOpen}
+                    setSelectedFriend={setSelectedFriend}
+                    globalSelfBill={globalSelfBill}
+                    globalFrenBill={globalFrenBill}
+                    selected={selected}
+                    setSelected={setSelected}
+                />
+                <AddFriendForm
+                    onSetFriend={setFriend}
+                    friend={friend}
+                    debtor={debtor}
+                    debt={debt}
+                />
+                <CloseButton />
+            </div>
+            <BillCalculation
+                billOpen={billOpen}
+                selectedFriend={selectedFriend}
+                setDebtor={setDebtor}
+                selfGlbBill={setGlobalSelfBill}
+                frenGlbBill={setGlobalFrenBill}
+                selected={selected}
+                setSelected={setSelected}
+                friend={friend}
+                setDebt={setDebt}
+                setFriend={setFriend}
+            />
+        </div>
+    );
+}
+
+function CloseButton() {
+    return <div className="close-btn">Close button</div>;
+}
+
+export function Button({ children }) {
+    return (
+        <div className="btn-box">
+            <button className="btn">{children}</button>
+        </div>
+    );
+}
