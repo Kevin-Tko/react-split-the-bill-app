@@ -4,6 +4,7 @@
     --text-color: #495057;
     --button-color: #ffa94d;
     --button-hover-color: #cc873e;
+    --light-gray: #f8f9fa;
 }
 
 * {
@@ -25,153 +26,105 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-    background-color: aqua;
-    max-width: 90%;
+.app {
+    /* background-color: antiquewhite; */
+    width: 80vw;
     margin: 10rem auto;
-    padding: 5rem 10rem;
-
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
     align-items: start;
-    gap: 2.4rem;
-}
-
-/* **************************************************** */
-/* Generic CSS*/
-/* **************************************************** */
-.calculation-bill,
-.friends,
-.add-friend,
-.close-btn {
-    background-color: aliceblue;
-    padding: 1rem 2rem;
-}
-
-.calculation-bill,
-.container-friends {
-    background-color: antiquewhite;
-    border-radius: 0.7rem;
-}
-
-.btn {
-    display: block;
-    padding: 0.5rem 1.5rem;
-    border: none;
-    border-radius: 0.3rem;
-    font-size: 1.4rem;
-    font-family: inherit;
-    font-weight: 600;
-    background-color: var(--button-color);
-    cursor: pointer;
-    transition: all 0.4s;
-}
-
-.btn:hover {
-    background-color: var(--button-hover-color);
-    transform: scale(1.05);
-}
-
-.btn-container {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.btn-container__bill {
-    display: grid;
-}
-
-input,
-select {
-    border: none;
-    border-radius: 0.3rem;
-    padding: 0.2rem 0.4rem;
-}
-
-input:focus,
-select:focus {
-    outline: none;
-    cursor: text;
-}
-/* **************************************************** */
-/* Friends CSS*/
-/* **************************************************** */
-.container-friends {
-    display: flex;
-    flex-direction: column;
-    gap: 2.4rem;
-    padding: 4rem 2rem;
+    background-color: blueviolet;
+    padding: 5rem;
 }
 
 .friends {
     display: flex;
+    flex: 0 1 auto;
     flex-direction: column;
     gap: 1.2rem;
+    list-style: none;
+    background-color: antiquewhite;
 }
 
+/* ****************************** */
+/* friend CSS */
+/* ****************************** */
 .friend {
     display: grid;
     grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 1.8rem;
-    background-color: blueviolet;
-    padding: 0.5rem;
+    gap: 2rem;
+    padding: 1rem;
 }
 
-/* Profile image */
-.profile-img {
+.img {
     height: 5rem;
     border-radius: 10rem;
+    display: inline-block;
+    align-self: center;
 }
 
-/* Profile Data */
 .profile-data {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.3rem;
+    align-self: center;
 }
 
-.friend-name {
-    font-size: 1.4rem;
+h2 {
+    font-size: 1.8rem;
 }
 
-.profile-msg {
-    font-size: 1.4rem;
-    font-weight: 300;
+h1 {
+    font-size: 2.4rem;
+    text-align: center;
 }
 
-.add-friend {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+.btn {
+    display: inline-block;
+    height: 3rem;
+    width: 10rem;
+    align-self: center;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    font-weight: 600;
+    text-transform: lowercase;
+    cursor: pointer;
+    transition: all 0.6s;
 }
 
-.new-friend__name,
-.new-friend__img {
+.btn:hover {
+    background-color: var(--button-hover-color);
+    color: var(--light-gray);
+    transform: scale(1.05);
+}
+
+.owe {
+    color: #e03131;
+}
+
+.owed {
+    color: #2f9e44;
+}
+
+/* ****************************** */
+/* Add riend CSS */
+/* ****************************** */
+.form {
+    background-color: antiquewhite;
+    padding: 2rem 5rem;
+}
+
+.form-el {
     display: grid;
-    grid-template-columns: auto 1fr 1fr;
-    gap: 1.2rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 1.2rem;
 }
 
-/* **************************************************** */
-/* Bill CSS*/
-/* **************************************************** */
-.calculation-bill {
-    padding: 4rem 2rem;
+.btn-container {
+    padding-right: 3rem;
     display: flex;
-    flex: 0 1 auto;
-    flex-direction: column;
-    gap: 1.6rem;
-}
-.bill-elements {
-    display: grid;
-    grid-template-columns: auto 1fr 1fr;
-    gap: 1.2rem;
-}
-
-.calculation-bill input,
-.calculation-bill select {
-    max-width: 50%;
-    align-self: start;
+    justify-content: flex-end;
 }
